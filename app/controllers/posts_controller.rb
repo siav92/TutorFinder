@@ -12,19 +12,18 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		@current_user = User.find(session[:user_id])
 		@post = Post.new
 
 	end
 
 	def show
-		@post = Post.where( :id => params[:id]).first
+		@post = Post.find(params[:id])
+#       @user = session[:user_id]
         @current_user = User.find(session[:user_id])
         @comment = Comment.new
 	end
 
 	def create
-		@current_user = User.find(session[:user_id])
 		@post = Post.new(post_params)
 
 		if @post.save
@@ -35,13 +34,10 @@ class PostsController < ApplicationController
 	end
 
 	def edit
-	 @current_user = User.find(session[:user_id])
 		@post = Post.find(params[:id])
 	end
 
 	def update
-		 @current_user = User.find(session[:user_id])
-
 		@post = Post.find(params[:id])
 
 		if @post.update(params[:post].permit(:title, :body, :photo))
@@ -61,7 +57,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:title, :body, :user_id, :photo)
+		params.require(:post).permit(:title, :body, :photo)
 
 	end
 

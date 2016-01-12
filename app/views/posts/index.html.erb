@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <h3 class="title"><%=post.title %> </h3>
-                    <h5>Posted by <strong><%= User.find(post.user_id).first_name %> <%= User.find(post.user_id).last_name %></strong>  on <span><%= post.created_at.strftime("%B %d, %Y") %> </span>  </h5> 
+                    <h5>Posted on <span><%= post.created_at.strftime("%B %d, %Y") %> </span> </h5> 
                     <%= link_to("View Comments", post , :class => "btn btn-success btn-xs")  %>
             
                 <div>

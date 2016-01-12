@@ -1,0 +1,14 @@
+I"/(function() {
+  $(function() {
+    var flashCallback;
+    flashCallback = function() {};
+    $(".flash").fadeOut();
+    $(".flash").bind('click', (function(_this) {
+      return function(ev) {};
+    })(this));
+    $(".flash").fadeOut();
+    return setTimeout(flashCallback, 3000);
+  });
+
+}).call(this);
+:ET

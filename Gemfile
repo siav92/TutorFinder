@@ -18,13 +18,10 @@ gem 'mysql2', '~> 0.3.20'
 #for dumping data
 gem 'yaml_db'
 
-# tilt
-gem 'tilt',  '~> 2.0.1'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -67,7 +64,7 @@ gem 'mail_form', '~> 1.5.0.rc'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'annotate'
-#  gem 'better_errors'
+  gem 'better_errors'
   gem "binding_of_caller"
   gem 'pry-byebug', platform: [:ruby_20]
 end

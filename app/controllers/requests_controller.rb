@@ -29,7 +29,7 @@ class RequestsController < ApplicationController
             @tutor_cours = CourseTutor.select("*").joins(:course).where(:user_id => params[:tutor_id]).all
             @request = Request.new(tutorID: params[:tutor_id])
         else
-            flash[:notice] = "Can not submit this request!(Course must be selected)!"
+            flash[:notice] = "There is no such user. Nice Try!"
             redirect_to(:back)
         end
     end

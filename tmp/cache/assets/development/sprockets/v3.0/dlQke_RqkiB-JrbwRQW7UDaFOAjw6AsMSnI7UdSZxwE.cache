@@ -1,0 +1,7 @@
+I"o(function() {
+  jQuery(function() {
+    return $('#request_apptDate').datepicker();
+  });
+
+}).call(this);
+:ET

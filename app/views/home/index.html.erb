@@ -30,10 +30,13 @@
     </div>
     <div class="item">
         <%= image_tag("carousel3.jpg", :class => "img_responsive center-block", :alt => "Carousel Link to contact page")  %>
+      <div class="carousel-caption">
+              <%= link_to('Want to contact us?',{:controller => 'home',:action => 'contact'},:data => { :no_turbolink => true })%>
+      </div>
     </div>
   </div>
 
-</div>vagra
+</div>
 
 <div class="row home-search">
     <div class="col-md-2"></div>

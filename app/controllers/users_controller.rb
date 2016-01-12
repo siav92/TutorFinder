@@ -35,7 +35,7 @@ class UsersController < ApplicationController
             redirect_to( :action => 'new', notice: 'User already exist with this email. If you are already a member please log in.')
         elsif  @user.save
             #send user an email
-            UserMailer.signup_confirmation(@user).deliver
+#            UserMailer.signup_confirmation(@user).deliver
 			#go to user's profile
             #storing the user's id and name in session for later access
 			session[:user_id] = @user.id

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208004840) do
+ActiveRecord::Schema.define(version: 20151206235649) do
+
+  create_table "comment_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id",   null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations",   null: false
+  end
+
+  add_index "comment_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "tag_anc_desc_udx", unique: true
+  add_index "comment_hierarchies", ["descendant_id"], name: "tag_desc_idx"
 
   create_table "comments", force: :cascade do |t|
     t.text     "body",       null: false
@@ -37,6 +46,14 @@ ActiveRecord::Schema.define(version: 20151208004840) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "course_students", force: :cascade do |t|
+    t.integer  "user_id",                 null: false
+    t.integer  "course_id",               null: false
+    t.string   "description", limit: 250
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "course_tutors", force: :cascade do |t|
     t.integer  "user_id",                               null: false
     t.integer  "course_id",                             null: false
@@ -56,9 +73,8 @@ ActiveRecord::Schema.define(version: 20151208004840) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title",              null: false
-    t.text     "body",               null: false
-    t.integer  "user_id",            null: false
+    t.string   "title"
+    t.text     "body"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"
